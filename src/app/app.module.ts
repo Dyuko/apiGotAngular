@@ -9,6 +9,7 @@ import { CharacterListComponent } from './modules/character-locations/character-
 import { SearchCharacterComponent } from './modules/character-locations/search-character/search-character.component';
 import { CharacterDetailsComponent } from './modules/character-locations/character-details/character-details.component';
 import { HttpClientModule } from '@angular/common/http';
+import { ListTableComponent } from './modules/character-locations/character-list/list-table/list-table.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { HttpClientModule } from '@angular/common/http';
     NavbarComponent,
     CharacterListComponent,
     SearchCharacterComponent,
-    CharacterDetailsComponent
+    CharacterDetailsComponent,
+    ListTableComponent
   ],
   imports: [
     BrowserModule,
