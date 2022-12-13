@@ -5,11 +5,17 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NavbarComponent } from './core/components/navbar/navbar.component';
+import { CharacterListComponent } from './modules/character-locations/character-list/character-list.component';
+import { SearchCharacterComponent } from './modules/character-locations/search-character/search-character.component';
+import { CharacterDetailsComponent } from './modules/character-locations/character-details/character-details.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavbarComponent
+    NavbarComponent,
+    CharacterListComponent,
+    SearchCharacterComponent,
+    CharacterDetailsComponent
   ],
   imports: [
     BrowserModule,
