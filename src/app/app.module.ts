@@ -8,6 +8,7 @@ import { NavbarComponent } from './core/components/navbar/navbar.component';
 import { CharacterListComponent } from './modules/character-locations/character-list/character-list.component';
 import { SearchCharacterComponent } from './modules/character-locations/search-character/search-character.component';
 import { CharacterDetailsComponent } from './modules/character-locations/character-details/character-details.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { CharacterDetailsComponent } from './modules/character-locations/charact
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgbModule
+    NgbModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
