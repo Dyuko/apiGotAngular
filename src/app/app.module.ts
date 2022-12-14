@@ -12,6 +12,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ListTableComponent } from './modules/character-locations/character-list/list-table/list-table.component';
 import { FormsModule } from '@angular/forms';
 import { ErrorAlertComponent } from './shared/components/error-alert/error-alert.component';
+import { HousesComponent } from './modules/houses/houses.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,7 +21,8 @@ import { ErrorAlertComponent } from './shared/components/error-alert/error-alert
     SearchCharacterComponent,
     CharacterDetailsComponent,
     ListTableComponent,
-    ErrorAlertComponent
+    ErrorAlertComponent,
+    HousesComponent
   ],
   imports: [
     BrowserModule,
