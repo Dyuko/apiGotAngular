@@ -17,7 +17,7 @@ export class CharacterLocation {
 export class CharacterLocations {
     message: string;
     data: CharacterLocation[];
-
+    id?: number;
     constructor(message:string, data:CharacterLocation[]) {
         this.message = message;
         this.data = data;

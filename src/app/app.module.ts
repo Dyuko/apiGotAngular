@@ -10,7 +10,8 @@ import { SearchCharacterComponent } from './modules/character-locations/search-c
 import { CharacterDetailsComponent } from './modules/character-locations/character-details/character-details.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ListTableComponent } from './modules/character-locations/character-list/list-table/list-table.component';
-
+import { FormsModule } from '@angular/forms';
+import { ErrorAlertComponent } from './shared/components/error-alert/error-alert.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,13 +19,15 @@ import { ListTableComponent } from './modules/character-locations/character-list
     CharacterListComponent,
     SearchCharacterComponent,
     CharacterDetailsComponent,
-    ListTableComponent
+    ListTableComponent,
+    ErrorAlertComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgbModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

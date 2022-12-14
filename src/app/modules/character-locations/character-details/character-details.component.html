@@ -1,1 +1,14 @@
-<p>character-details works!</p>
+<div *ngIf="characterDetail !== null && characterDetail !== undefined" class="card mb-2">
+    <div class="card-body">
+        <h5 class="card-title text-center text-black">
+            <span>Name: </span> {{characterDetail._id}}
+        </h5>
+        <p class="card-text text-black"><span>ID: </span> {{characterDetail._id}}</p>
+        <p class="card-text text-black"><span>Slug: </span> {{characterDetail.slug}}</p>
+        <p class="card-text text-black"><span>Locations: </span></p>
+
+        <ol class="list-group" *ngFor = "let location of characterDetail.locations">
+            <li class="list-group-item">{{location}}</li>
+          </ol>
+    </div>
+</div>

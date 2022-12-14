@@ -1,11 +1,11 @@
 <div class="container">
-    <h1 class="text-white">Character locations</h1>
+    <h1 class="text-white text-center">Character locations</h1>
     <div class="row text-white">
         <div class="col-lg-6">
-            <app-list-table></app-list-table>
+            <app-list-table (characterDetailEvent)="displayCharacterDetail($event)"></app-list-table>
         </div>
         <div class="col-lg-6">
-            Character details
+            <app-character-details [characterDetail]="characterDetail"></app-character-details>
         </div>
     </div>
     </div>

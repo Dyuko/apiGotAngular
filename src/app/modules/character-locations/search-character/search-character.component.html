@@ -1,1 +1,24 @@
-<p>search-character works!</p>
+<app-error-alert></app-error-alert>
+
+<div class="container bg-dark text-light">
+    <div class="container bg-dark p-5">
+        <div class="row">
+            <form (ngSubmit)="search()">
+                <div class="row">
+                    <div class="col-lg-8">
+                       <input type="text" class="form-control form-control-lg" [(ngModel)]="inputSearch"
+                              name="inputSearch"  placeholder="Busca una imagen">
+                    </div>
+                    <div class="col-lg-4">
+                        <button type="submit" class="btn btn-primary btn-lg btn-block">Buscar</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="container mt-5">
+    <app-character-details [characterDetail]="characterDetail"></app-character-details>
+</div>
+

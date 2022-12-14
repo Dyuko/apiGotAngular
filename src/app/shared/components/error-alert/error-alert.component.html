@@ -1,0 +1,4 @@
+<div *ngIf="showError" class="alert alert-warning alert-dismissible fade show">
+    <strong>{{textError | uppercase}}</strong>
+    <button type="button" class="btn-close" (click)="hideAlert()"></button>
+</div>
