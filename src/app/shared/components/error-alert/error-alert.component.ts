@@ -27,6 +27,9 @@ export class ErrorAlertComponent implements OnInit, OnDestroy {
 
     displayErrorMessage() {
       this.showError = true;
+      setTimeout(() => {
+        this.showError = false;
+      }, 3000);
     }
 
     hideAlert() {

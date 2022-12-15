@@ -2,3 +2,20 @@
 
 /* Importing Bootstrap SCSS file. */
 @import '~bootstrap/scss/bootstrap';
+
+.title {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    color: #fac832;
+    font-size: 3em;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.black-container {
+    background: rgba(0, 0, 0, 0.65);
+    padding: 5px;
+}
+
+.custom-select {
+    height: 38px;
+}

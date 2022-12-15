@@ -9,16 +9,18 @@ import { ErrorAlertService } from 'src/app/shared/services/error-alert.service';
   styleUrls: ['./search-character.component.scss']
 })
 export class SearchCharacterComponent implements OnInit {
-  inputSearch: string = '';
+  inputSearch = '';
   characterDetail!: CharacterLocation;
+  showDetail = false;
   constructor(private _errorAlertService: ErrorAlertService, private _apiGotService: ApiGotService) { }
 
   ngOnInit(): void {
   }
 
   search() {
-    if(this.inputSearch === '') {
+    if(this.inputSearch.trim() === '') {
       this._errorAlertService.setError('Please add a search text');
+      this.showDetail = false;
       return;
     }
 
@@ -30,6 +32,7 @@ export class SearchCharacterComponent implements OnInit {
     this._apiGotService.getCharacterLocationsByName(name).subscribe(
       (data: CharacterLocation) => {
         this.characterDetail = data;
+        this.showDetail = true;
       },
       (error) => {
         this._errorAlertService.setError('Result empty');

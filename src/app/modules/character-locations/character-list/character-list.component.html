@@ -1,11 +1,13 @@
-<div class="container">
-    <h1 class="text-white text-center">Character locations</h1>
-    <div class="row text-white">
-        <div class="col-lg-6">
-            <app-list-table (characterDetailEvent)="displayCharacterDetail($event)"></app-list-table>
-        </div>
-        <div class="col-lg-6">
-            <app-character-details [characterDetail]="characterDetail"></app-character-details>
+<h1 class="text-center mb-5 title mt-3">Character locations</h1>
+<div class="container black-container">
+    <div class="container p-3">
+        <div class="row text-white">
+            <div class="col-lg-6">
+                <app-list-table (characterDetailEvent)="displayCharacterDetail($event)"></app-list-table>
+            </div>
+            <div class="col-lg-6">
+                <app-character-details [characterDetail]="characterDetail"></app-character-details>
+            </div>
         </div>
     </div>
-    </div>
+</div>

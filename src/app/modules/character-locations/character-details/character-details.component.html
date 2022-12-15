@@ -1,14 +1,16 @@
 <div *ngIf="characterDetail !== null && characterDetail !== undefined" class="card mb-2">
+    <div class="card-header text-center text-white bg-dark">
+        <strong>Name: </strong> {{characterDetail.name}}
+    </div>
     <div class="card-body">
-        <h5 class="card-title text-center text-black">
-            <span>Name: </span> {{characterDetail.name}}
-        </h5>
-        <p class="card-text text-black"><span>ID: </span> {{characterDetail._id}}</p>
-        <p class="card-text text-black"><span>Slug: </span> {{characterDetail.slug}}</p>
-        <p class="card-text text-black"><span>Locations: </span></p>
+        <p class="card-text text-black"><strong>ID: </strong> {{characterDetail._id}}</p>
+        <p class="card-text text-black"><strong>Slug: </strong> {{characterDetail.slug}}</p>
 
-        <ol class="list-group" *ngFor = "let location of characterDetail.locations">
-            <li class="list-group-item">{{location}}</li>
-        </ol>
+        <ng-container *ngIf="characterDetail.locations.length > 0">
+            <p class="card-text text-black"><strong>Locations: </strong></p>
+            <ol class="list-group scrolleable">
+                <li *ngFor = "let location of characterDetail.locations" class="list-group-item">{{location}}</li>
+            </ol>
+        </ng-container>
     </div>
 </div>

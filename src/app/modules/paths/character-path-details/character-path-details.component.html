@@ -1,41 +1,58 @@
 <div *ngIf="pathDetail !== null && pathDetail !== undefined" class="card mb-2">
+    <div class="card-header text-center text-white bg-dark">
+        <strong>Name: </strong> {{pathDetail.name}}
+    </div>
     <div class="card-body">
-        <h5 class="card-title text-center text-black">
-            <span>Name: </span> {{pathDetail.name}}
-        </h5>
         <div class="row">
             <div class="col-sm">
-                <p class="card-text text-black"><span>ID: </span> {{pathDetail._id}}</p>
-                <p class="card-text text-black"><span>Alive: </span> {{alive ? 'Yes' : 'No'}}</p>
-                <p class="card-text text-black" *ngIf="!alive"><span>Dead in chapter: </span> {{deathPath?.from}}</p>
-                <p class="card-text text-black"><span>Cities visited in order: </span></p>
-                <ul *ngFor = "let city of visitedCities">
+                <p class="card-text text-black"><strong>ID: </strong> {{pathDetail._id}}</p>
+                <p class="card-text text-black"><strong>Alive: </strong> {{alive ? 'Yes' : 'No'}}</p>
+                <p class="card-text text-black" *ngIf="!alive"><strong>Dead in chapter: </strong> {{deathPath?.from}}
+                </p>
+                <p class="card-text text-black"><strong>Cities visited in order: </strong></p>
+                <ul *ngFor="let city of visitedCities">
                     <li>{{city}}</li>
                 </ul>
             </div>
             <div class="col-sm">
-                <p class="card-text text-black"><span>Ordered paths: </span></p>
-                <ng-container *ngFor="let path of orderedPaths">
-                    <p class="card-text text-black"><span>From: </span> {{path.from}}</p>
-                    <p class="card-text text-black"><span>To: </span> {{path.to}}</p>
-                    <p class="card-text text-black"><span>Alive: </span> {{path.alive}}</p>
+                <p class="card-text text-black"><strong>Ordered paths: </strong></p>
 
-                    <table class="table table-light table-bordered table-hover">
-                        <thead>
-                            <tr>
-                                <th scope="col">Latitude</th>
-                                <th scope="col">Longitude</th>
-                                <th scope="col">City</th>
-                              </tr>
-                        </thead>
-                        <tbody>
-                            <tr *ngFor="let subpath of path.path">
-                              <td>{{ subpath[0] }}</td>
-                              <td>{{ subpath[1] }}</td>
-                              <td>{{ subpath[2] }}</td>
-                            </tr>
-                          </tbody>
-                    </table>
+                <ng-container *ngFor="let path of orderedPaths">
+                    <ngb-accordion #acc="ngbAccordion">
+                        <ngb-panel>
+                            <ng-template ngbPanelHeader>
+                                <button ngbPanelToggle class="accordion-button">
+                                    <span><strong>From: </strong> {{path.from ?? '-'}}</span>
+                                    <span><strong>&emsp;To: </strong> {{path.to ?? '-'}}</span>
+                                    <span><strong>&emsp;Alive: </strong> {{path.alive ? 'Yes' : 'No'}}</span>
+                                </button>
+                            </ng-template>
+                            <ng-template ngbPanelContent>
+                                <div class="table-responsive">
+                                    <table class="table table-light table-bordered table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">Latitude</th>
+                                                <th scope="col">Longitude</th>
+                                                <th scope="col">City</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr *ngFor="let subpath of path.path">
+                                                <td>{{ subpath[0] }}</td>
+                                                <td>{{ subpath[1] }}</td>
+                                                <td>{{ subpath[2] }}</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </ng-template>
+                        </ngb-panel>
+                    </ngb-accordion>
+                </ng-container>
+
+                <ng-container *ngFor="let path of orderedPaths">
+
                 </ng-container>
             </div>
         </div>

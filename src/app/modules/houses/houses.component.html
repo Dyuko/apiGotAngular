@@ -1,56 +1,61 @@
-<div class="container">
-    <h1 class="text-center text-white">Houses</h1>
-    <table class="table table-light table-bordered table-striped ">
-        <thead>
-        <tr>
-            <th scope="col">ID</th>
-            <th scope="col">Name</th>
-            <th scope="col">Titles</th>
-            <th scope="col">Created at</th>
-            <th scope="col">Updated at</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr *ngFor="let house of slicedHouses">
-            <td>{{ house._id }}</td>
-            <td>{{ house.name }}</td>
-            <td>{{ house.titles.toString() }}</td>
-            <td>{{ house.createdAt | date: 'dd/MM/yyyy' }}</td>
-            <td>{{ house.updatedAt | date: 'dd/MM/yyyy' }}</td>
-        </tr>
-        </tbody>
-    </table>
+<h1 class="text-center mb-5 title mt-3">Houses</h1>
 
+<div class="container black-container">
+    <div class="container p-3">
         <div class="d-flex justify-content-between p-2">
-        <ngb-pagination [collectionSize]="collectionSize" [(page)]="page" [pageSize]="pageSize" (pageChange)="refreshHouses()" [boundaryLinks]="true">
-            <ng-template ngbPaginationPages let-page let-pages="pages">
-                <li class="ngb-custom-pages-item" *ngIf="pages.length > 0">
-                <div class="mb-3 d-flex flex-nowrap px-2">
-                    <label id="paginationInputLabel" for="paginationInput" class="col-form-label me-2 ms-1">Page</label>
-                    <input
-                    #i
-                    type="text"
-                    inputmode="numeric"
-                    pattern="[0-9]*"
-                    class="form-control custom-pages-input"
-                    id="paginationInput"
-                    [value]="page"
-                    (keyup.enter)="selectPage(i.value)"
-                    (blur)="selectPage(i.value)"
-                    (input)="formatInput($any($event).target)"
-                    aria-labelledby="paginationInputLabel paginationDescription"
-                    style="width: 2.5rem"
-                    />
-                    <span id="paginationDescription" class="col-form-label text-nowrap px-2"> of {{pages.length}}</span>
-                </div>
-                </li>
-            </ng-template>
-        </ngb-pagination>
+            <ngb-pagination [collectionSize]="collectionSize" [(page)]="page" [pageSize]="pageSize" (pageChange)="refreshHouses()" [boundaryLinks]="true">
+                <ng-template ngbPaginationPages let-page let-pages="pages">
+                    <li class="ngb-custom-pages-item" *ngIf="pages.length > 0">
+                    <div class="mb-3 d-flex flex-nowrap px-2 text-white">
+                        <label id="paginationInputLabel" for="paginationInput" class="col-form-label me-2 ms-1">Page</label>
+                        <input
+                        #i
+                        type="text"
+                        inputmode="numeric"
+                        pattern="[0-9]*"
+                        class="form-control custom-pages-input"
+                        id="paginationInput"
+                        [value]="page"
+                        (keyup.enter)="selectPage(i.value)"
+                        (blur)="selectPage(i.value)"
+                        (input)="formatInput($any($event).target)"
+                        aria-labelledby="paginationInputLabel paginationDescription"
+                        style="width: 4rem"
+                        />
+                        <span id="paginationDescription" class="col-form-label text-nowrap px-2"> of {{pages.length}}</span>
+                    </div>
+                    </li>
+                </ng-template>
+            </ngb-pagination>
 
-        <select class="custom-select d-none d-md-block" style="width: auto" [(ngModel)]="pageSize" (ngModelChange)="refreshHouses()">
-            <option [ngValue]="2">2 items per page</option>
-            <option [ngValue]="4">4 items per page</option>
-            <option [ngValue]="6">6 items per page</option>
-        </select>
+            <select class="custom-select d-none d-md-block" style="width: auto" [(ngModel)]="pageSize" (ngModelChange)="refreshHouses()">
+                <option [ngValue]="2">2 items</option>
+                <option [ngValue]="4">4 items</option>
+                <option [ngValue]="6">6 items</option>
+            </select>
         </div>
+
+        <div class="table-responsive">
+            <table class="table table-light table-bordered table-striped">
+                <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Titles</th>
+                    <th scope="col">Created at</th>
+                    <th scope="col">Updated at</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr *ngFor="let house of slicedHouses">
+                    <td>{{ house._id }}</td>
+                    <td>{{ house.name }}</td>
+                    <td>{{ house.titles.toString() }}</td>
+                    <td>{{ house.createdAt | date: 'dd/MM/yyyy' }}</td>
+                    <td>{{ house.updatedAt | date: 'dd/MM/yyyy' }}</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
 </div>

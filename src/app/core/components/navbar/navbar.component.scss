@@ -22,6 +22,7 @@ $red-color: #FF0000;
 
 /* change the color of active or hovered links */
 .navbar-custom .nav-item.active .nav-link,
+.navbar-custom .nav-item .nav-link.active,
 .navbar-custom .nav-item:focus .nav-link,
 .navbar-custom .nav-item:hover .nav-link {
     color: $base-yellow-color;

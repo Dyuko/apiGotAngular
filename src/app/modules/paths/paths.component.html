@@ -1,26 +1,24 @@
-<app-error-alert></app-error-alert>
+<h1 class="text-center mb-3 title mt-3">Paths</h1>
+<div class="container bg-dark p-5">
+    <div class="form-group">
+        <div class="row">
+            <div class="col-lg-4">
+                <strong class="text-white">Select character:</strong>
+            </div>
 
-<div class="container bg-dark text-light">
-    <div class="container bg-dark p-5">
-        <div class="form-group">
-            <div class="row">
-
-                <div class="col-lg-4">
-                    <strong class="text-white">Select character:</strong>
-                </div>
-
-                <div class="col-lg-8">
-                    <select class="form-control" [(ngModel)]="selectedCharacterID" (change)="selectCharacter(t.value)" #t>
-                        <option *ngFor="let path of paths" [value]="path._id">>
-                            {{path.name}}
-                        </option>
-                    </select>
-                </div>
+            <div class="col-lg-8">
+                <select class="form-select" [(ngModel)]="selectedCharacterID" (change)="selectCharacter(t.value)" #t>
+                    <option *ngFor="let path of paths" [value]="path._id">>
+                        {{path.name}}
+                    </option>
+                </select>
             </div>
         </div>
     </div>
 </div>
 
-<div class="container mt-5">
-    <app-character-path-details [characterPathDetail]="selectCharacterPath"></app-character-path-details>
+<div class="container black-container">
+    <div class="container p-3">
+        <app-character-path-details [characterPathDetail]="selectCharacterPath"></app-character-path-details>
+    </div>
 </div>

@@ -1,24 +1,30 @@
-<app-error-alert></app-error-alert>
+div<h1 class="text-center mb-5 title mt-3">Character locations</h1>
 
-<div class="container bg-dark text-light">
-    <div class="container bg-dark p-5">
-        <div class="row">
-            <form (ngSubmit)="search()">
-                <div class="row">
-                    <div class="col-lg-8">
-                       <input type="text" class="form-control form-control-lg" [(ngModel)]="inputSearch"
-                              name="inputSearch"  placeholder="Search character">
-                    </div>
-                    <div class="col-lg-4">
-                        <button type="submit" class="btn btn-primary btn-lg btn-block">Search</button>
-                    </div>
+<div class="container bg-dark p-5">
+    <div class="row">
+        <form (ngSubmit)="search()">
+            <div class="row">
+                <div class="col-lg-8">
+                    <input type="text" class="form-control form-control-lg" [(ngModel)]="inputSearch"
+                            name="inputSearch"  placeholder="Search character">
                 </div>
-            </form>
-        </div>
+                <div class="col-lg-4">
+                    <button type="submit" class="btn btn-primary btn-lg btn-block">Search</button>
+                </div>
+            </div>
+        </form>
     </div>
 </div>
-
-<div class="container mt-5">
-    <app-character-details [characterDetail]="characterDetail"></app-character-details>
+<div class="container mt-3">
+    <app-error-alert></app-error-alert>
 </div>
+
+<ng-container *ngIf="showDetail">
+    <div class="container black-container">
+        <div class="container p-3">
+            <app-character-details [characterDetail]="characterDetail"></app-character-details>
+
+        </div>
+    </div>
+</ng-container>
 
