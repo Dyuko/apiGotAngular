@@ -1,3 +1,4 @@
+import { PathsComponent } from './modules/paths/paths.component';
 import { HousesComponent } from './modules/houses/houses.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
@@ -8,6 +9,7 @@ const routes: Routes = [
   { path: 'character-locations-list', component: CharacterListComponent },
   { path: 'character-locations-search', component: SearchCharacterComponent },
   { path: 'houses', component: HousesComponent },
+  { path: 'paths', component: PathsComponent },
 ];
 
 @NgModule({

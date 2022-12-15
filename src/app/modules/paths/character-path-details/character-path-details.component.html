@@ -1,0 +1,43 @@
+<div *ngIf="pathDetail !== null && pathDetail !== undefined" class="card mb-2">
+    <div class="card-body">
+        <h5 class="card-title text-center text-black">
+            <span>Name: </span> {{pathDetail.name}}
+        </h5>
+        <div class="row">
+            <div class="col-sm">
+                <p class="card-text text-black"><span>ID: </span> {{pathDetail._id}}</p>
+                <p class="card-text text-black"><span>Alive: </span> {{alive ? 'Yes' : 'No'}}</p>
+                <p class="card-text text-black" *ngIf="!alive"><span>Dead in chapter: </span> {{deathPath?.from}}</p>
+                <p class="card-text text-black"><span>Cities visited in order: </span></p>
+                <ul *ngFor = "let city of visitedCities">
+                    <li>{{city}}</li>
+                </ul>
+            </div>
+            <div class="col-sm">
+                <p class="card-text text-black"><span>Ordered paths: </span></p>
+                <ng-container *ngFor="let path of orderedPaths">
+                    <p class="card-text text-black"><span>From: </span> {{path.from}}</p>
+                    <p class="card-text text-black"><span>To: </span> {{path.to}}</p>
+                    <p class="card-text text-black"><span>Alive: </span> {{path.alive}}</p>
+
+                    <table class="table table-light table-bordered table-hover">
+                        <thead>
+                            <tr>
+                                <th scope="col">Latitude</th>
+                                <th scope="col">Longitude</th>
+                                <th scope="col">City</th>
+                              </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let subpath of path.path">
+                              <td>{{ subpath[0] }}</td>
+                              <td>{{ subpath[1] }}</td>
+                              <td>{{ subpath[2] }}</td>
+                            </tr>
+                          </tbody>
+                    </table>
+                </ng-container>
+            </div>
+        </div>
+    </div>
+</div>

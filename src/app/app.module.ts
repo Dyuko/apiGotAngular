@@ -13,6 +13,8 @@ import { ListTableComponent } from './modules/character-locations/character-list
 import { FormsModule } from '@angular/forms';
 import { ErrorAlertComponent } from './shared/components/error-alert/error-alert.component';
 import { HousesComponent } from './modules/houses/houses.component';
+import { PathsComponent } from './modules/paths/paths.component';
+import { CharacterPathDetailsComponent } from './modules/paths/character-path-details/character-path-details.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,7 +24,9 @@ import { HousesComponent } from './modules/houses/houses.component';
     CharacterDetailsComponent,
     ListTableComponent,
     ErrorAlertComponent,
-    HousesComponent
+    HousesComponent,
+    PathsComponent,
+    CharacterPathDetailsComponent
   ],
   imports: [
     BrowserModule,
